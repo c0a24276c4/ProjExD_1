@@ -23,14 +23,18 @@ def main():
             if event.type == pg.QUIT: return
         
         key_lst = pg.key.get_pressed()
+
+        a = -1
+        b = 0
         if key_lst[pg.K_UP]:
-            kouka_rct.move_ip((0, -1))
-        if key_lst[pg.K_DOWN]:
-            kouka_rct.move_ip((0, 1))
-        if key_lst[pg.K_LEFT]:
-            kouka_rct.move_ip((-1, 0))
+            b = -1
+        elif key_lst[pg.K_DOWN]:
+            b = 1
         if key_lst[pg.K_RIGHT]:
-            kouka_rct.move_ip((1, 0))
+            a = 1
+            b = 0
+        kouka_rct.move_ip((a,b))
+
 
         screen.blit(bg_img, [-x, 0])
         screen.blit(bg_img2, [-x + 1600,0])  #2枚目
