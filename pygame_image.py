@@ -14,15 +14,17 @@ def main():
     kouka_img = pg.image.load("fig/3.png")
     kouka_img = pg.transform.flip(kouka_img,True,False)
     tmr = 0
+    x = tmr % 3200
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [-tmr, 0])
-        screen.blit(bg_img2, [-tmr + 1600,0])  #2枚目
+        screen.blit(bg_img, [-x, 0])
+        screen.blit(bg_img2, [-x + 1600,0])  #2枚目
+        screen.blit(bg_img, [-x + 3200, 0])  #3枚目
         screen.blit(kouka_img,[300,200])
         pg.display.update()
-        tmr += 1        
+        x += 1        
         clock.tick(200)
 
 
